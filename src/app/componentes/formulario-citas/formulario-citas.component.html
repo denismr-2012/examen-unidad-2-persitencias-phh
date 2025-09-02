@@ -1,0 +1,52 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Crea una nueva cita</ion-card-title>
+  </ion-card-header>
+
+  <ion-item>
+    <ion-input 
+      [(ngModel)]="cita"
+      required="required"
+      minlength="5" 
+      #citaInput="ngModel" 
+      type="string" 
+      label="Cita" 
+      labelPlacement="stacked">
+    </ion-input> 
+  </ion-item>
+
+  <ion-item>
+    <ion-input 
+      [(ngModel)]="autor" 
+      required="required" 
+      minlength="2" 
+      #nameInput="ngModel" 
+      type="string" 
+      label="Autor" 
+      labelPlacement="stacked" 
+      placeholder="Salvador Allende">
+    </ion-input> 
+  </ion-item>
+
+  <ion-button 
+  [disabled]="!citaInput.valid || !nameInput.valid" 
+  (click)="onClick()" 
+  fill="clear">
+  Agregar +</ion-button> 
+
+  <ion-item> 
+    <ion-text
+    color="danger"
+    [hidden]="citaInput.pristine || citaInput.valid">
+    ¡Error! La cita debe contener un minimo de 5 caracteres. </ion-text>
+    <ion-text
+    color="danger"
+    [hidden]="nameInput.pristine || nameInput.valid">
+    ¡Error! El autor debe contener un minimo de 2 caracteres. </ion-text>
+    <ion-text
+    color="dark"
+    [hidden]="(!nameInput.pristine && !citaInput.pristine) || !nameInput.pristine || !citaInput.pristine">
+    La cita debe contener un minimo de 5 caracteres y el autor un minimo de 2 caracteres.</ion-text>
+  </ion-item>
+
+</ion-card>

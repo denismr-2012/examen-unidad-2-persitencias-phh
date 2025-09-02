@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Citas
+    </ion-title>
+    <ion-buttons slot="end"> 
+      <ion-button [routerLink]="['/citas']"> 
+        <ion-icon name="settings-outline"></ion-icon> 
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card style="margin-left: 10%; margin-right: 10%; margin-top: 20%; min-width: 70%;">
+    <ion-card-title style="float: left; font-size: 30px;" color="primary">{{randomCita.cita}}</ion-card-title>
+    <div><br/>
+      <ion-card-content style="float: right; font-size: 15px;">
+        <ion-text color="dark">{{randomCita.autor}}</ion-text> 
+      </ion-card-content>
+    </div>
+  </ion-card>
+
+  <ion-fab *ngIf="toggleCheckValue" slot="fixed" vertical="bottom" horizontal="start"> 
+    <ion-fab-button (click)="deleteCitaHomePage()">
+      <ion-icon name="close"></ion-icon> 
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button [routerLink]="['/configuraciones']"> 
+      <ion-icon name="add"></ion-icon> 
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,15 @@
+<ion-card>
+    <ion-list *ngFor="let q of cita"> 
+      <ion-item>
+        <ion-card-header>
+          <ion-card-title>{{q.cita}}</ion-card-title> 
+          <div><br/>
+            <ion-card-subtitle style="float:right">{{q.autor}}</ion-card-subtitle> 
+          </div>
+        </ion-card-header>
+        <ion-button (click)="deleteCita(q.id ?? 0)" slot="end">
+          <ion-icon icon="trash-outline"></ion-icon> 
+        </ion-button>
+      </ion-item>
+    </ion-list>
+</ion-card>
